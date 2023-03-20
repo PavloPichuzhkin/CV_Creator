@@ -1,0 +1,35 @@
+@import 'reset/reset';
+@import 'variables/global';
+
+.app, {
+  font: var(--font-xl);
+  //color: var(--primary-color);
+  //color: #41d22b;
+
+}
+
+.app {
+  background: rgba(241, 245, 237, 0.86);
+}
+
+.content-page {
+  display: flex;
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #FF4820; /* цвет дорожки */
+
+}
+
+*::-webkit-scrollbar-thumb {
+  /* цвет плашки */
+  background-color: #ce0505;
+
+  border-radius: 5px; /* закругления плашки */
+  //border: 2px solid var(--primary-color);
+  border: 3px solid #872424;/* padding вокруг плашки */
+}
