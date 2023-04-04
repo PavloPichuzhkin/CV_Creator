@@ -1,7 +1,12 @@
 import React, {memo} from 'react';
 import cls from './Component.module.scss';
 
-const Component = ({title, description, showDescription}) => {
+interface ISwitcherProps {
+    title:string
+    description: string
+    showDescription:number
+}
+const Component = ({title, description, showDescription}:ISwitcherProps) => {
 
     return (
         <div className={cls.main}>

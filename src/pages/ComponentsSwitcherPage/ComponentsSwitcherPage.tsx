@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-
 import cls from "./ComponentsSwitcherPage.module.scss";
-import Component from "../../components/ComponentsChanger/components/Component";
-import ComponentABCD from "../../components/ComponentsChanger/components/ComponentABCD";
-
+import Component from "../../widgets/ComponentsChanger/components/Component";
+import ComponentABCD from "../../widgets/ComponentsChanger/components/ComponentABCD";
 
 const ComponentsSwitcherPage = () => {
         const componentsForRender = [

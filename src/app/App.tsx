@@ -1,6 +1,6 @@
 // import React from 'react';
-import Footer from "../components/footer/footer";
-import Navbar from "../components/navbar/Navbar";
+import Footer from "../widgets/footer/Footer";
+import Navbar from "../widgets/navbar/Navbar";
 import AppRouter from "./providers/router/ui/AppRouter";
 
 const App = () => {

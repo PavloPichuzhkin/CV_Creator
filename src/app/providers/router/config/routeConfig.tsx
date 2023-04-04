@@ -1,48 +1,48 @@
 import {RouteProps} from "react-router-dom";
-import MainPage from "../../../../pages/MainPage/MainPage";
+import {MainPage} from "../../../../pages/MainPage";
 import AboutPage from "../../../../pages/AboutPage/AboutPage";
 import AuthPage from "../../../../pages/AuthPage/AuthPage";
 import ComponentsSwitcherPage from "../../../../pages/ComponentsSwitcherPage/ComponentsSwitcherPage";
-import {getRouteMain} from "../../../../shared/consts/router/router";
+import {
+    AppRoutes,
+    getRouteAbout, getRouteComponentsSwitcher, getRouteDesign,
+    getRouteMain,
+    getRouteSignIn,
+    getRouteSignUp, getRouteTemplates
+} from "../../../../shared/consts/router/router";
+// import {TemplatesPage} from "pages/TemplatesPage";  //TODO !!! aliases
+import {TemplatesPage} from "../../../../pages/TemplatesPage";
 
-export enum AppRoutes {
-    MAIN = "main",
-    ABOUT = "about",
-    SIGN_IN = "signIn",
-    SIGN_UP = "signUp",
-    COMPONENTS_SWITCHER = "componentsSwitcher"
 
-}
 
-export const RoutePath: Record<AppRoutes, string> = {
-
-    [AppRoutes.MAIN]: "/",
-    [AppRoutes.ABOUT]: "/about",
-    [AppRoutes.SIGN_IN]: "/signin",
-    [AppRoutes.SIGN_UP]: "/signup",
-    [AppRoutes.COMPONENTS_SWITCHER]: "/componentsSwitcher",
-
-};
 export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
-        // path: RoutePath.main,
         element: <MainPage/>,
     },
     [AppRoutes.ABOUT]: {
-        path: RoutePath.about,
+        path: getRouteAbout(),
         element: <AboutPage/>,
     },
+    [AppRoutes.TEMPLATES]: {
+        path: getRouteTemplates(),
+        element: <TemplatesPage/>,
+    },
+    [AppRoutes.COMPONENTS_SWITCHER]: {
+        path: getRouteComponentsSwitcher(),
+        element: <ComponentsSwitcherPage/>,
+    },
+    [AppRoutes.DESIGN]: {
+        path: getRouteDesign(),
+        element: <ComponentsSwitcherPage/>,/////???external link  ??? rel="noopener noreferrer"
+    },
     [AppRoutes.SIGN_IN]: {
-        path: RoutePath.signIn,
+        path: getRouteSignIn(),
         element: <AuthPage/>,
     },
     [AppRoutes.SIGN_UP]: {
-        path: RoutePath.signUp,
+        path: getRouteSignUp(),
         element: <AuthPage/>,
     },
-    [AppRoutes.COMPONENTS_SWITCHER]: {
-        path: RoutePath.componentsSwitcher,
-        element: <ComponentsSwitcherPage/>,
-    }
+
 };

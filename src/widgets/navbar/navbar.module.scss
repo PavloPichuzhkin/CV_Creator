@@ -1,0 +1,29 @@
+.navbar{
+  //margin:1rem;
+  //background-color: rgba(205, 254, 170, 0.73);
+  //background-color: rgba(205, 254, 170, 0.73);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  //box-sizing: border-box;
+}
+.navbarItem{
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 2px solid rgb(0, 0, 0, 0);
+}
+.navbarItem:hover {
+  //border-bottom: 2px solid #decb50;
+  //padding: 5px;
+  border: 2px solid #decb50;
+  border-radius: 5px;
+  //background: #CDFEAA;
+  //color: #404242;
+  opacity: 80%;
+
+}
+.active{
+  color: var(--button-color);
+}
