@@ -24,15 +24,22 @@ const ComponentsSwitcherPage = () => {
 
         }, [visible])
         return (
+            <div className={cls.block}>
             <div className={cls.container}>
                 <div>{visible}.</div>
                 {componentsForRender.map((component) => {
                     if (component.id === visible) {
-                        return <div key={component.id}  className={cls.container}><ComponentABCD
+                        return <div key={component.id}  className={cls.component}><ComponentABCD
                             title={component.content.title} description={component.content.description}/>
                         </div>
                     }
                 })}
+
+            </div>
+            <div className={cls.higher}>
+                <div >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cumque ea eaque eius enim et facilis harum ipsum iure maiores neque, placeat quam quibusdam quisquam sunt, tempora voluptates! Est, eveniet.</div>
+
+            </div>
             </div>);
     }
 ;

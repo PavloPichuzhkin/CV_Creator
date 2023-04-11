@@ -1,0 +1,45 @@
+.block {
+  display: block;
+  overflow-y: scroll;
+  margin: 0 auto;
+  height: calc(100vh - var(--navbar-height) - 40px);
+
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+  //justify-content: space-around;
+  //justify-content: center;
+
+  align-items: center;
+  //padding: 2rem 6rem;
+  width: 100%;
+  font-size: var(--font-size-xl);
+  //width: calc(100% - 30px);
+
+  //min-height: calc(100vh - var(--navbar-height) - 40px);
+
+  scroll-behavior: smooth;
+
+}
+
+.component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+
+  height: 100vh;
+  //min-height: 200vh;
+
+
+}
+
+.higher {
+  width: 350px;
+
+}
