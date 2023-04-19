@@ -1,27 +1,32 @@
 @import "reset/reset";
 @import "variables/global";
 @import "themes/light";
+@import "themes/dark.scss";
 
 .app {
   font: var(--font-xl);
   //color: $a//#{$a}  if $a is global
-   color: var(--primary-text-color);
-
-}
-
-.app {
+  color: var(--primary-text-color);
   background: var(--bg-color);
-  overflow: hidden;
-  //margin: 2rem;
-
+  //overflow: hidden;
 }
 
+.m-1{
+  margin: 1rem;
+}
+.p-1{
+  padding: 1rem 2rem;
+}
 .content-page {
   display: flex;
 }
 
 *::-webkit-scrollbar {
-  width: 16px;
+  //width: 16px;
+  width: 8px;
+}
+body::-webkit-scrollbar {
+  display: none; // https://blog.hubspot.com/website/hide-scrollbar-css
 }
 
 *::-webkit-scrollbar-track {

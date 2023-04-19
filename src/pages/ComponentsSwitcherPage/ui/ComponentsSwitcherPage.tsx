@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import cls from "./ComponentsSwitcherPage.module.scss";
-import Component from "../../widgets/ComponentsChanger/components/Component";
-import ComponentABCD from "../../widgets/ComponentsChanger/components/ComponentABCD";
+import Component from "../../../widgets/ComponentsChanger/components/Component";
+import ComponentABCD from "../../../widgets/ComponentsChanger/components/ComponentABCD";
 
 const ComponentsSwitcherPage = () => {
         const componentsForRender = [
@@ -13,7 +13,7 @@ const ComponentsSwitcherPage = () => {
         const [visible, setVisible] = useState(0)
         useEffect(() => {
             const interval = setInterval(() => {
-                if (visible >= 3) {
+                if (visible >=componentsForRender.length-1) {
                     setVisible(0)
                 } else {
                     setVisible(visible => visible + 1)

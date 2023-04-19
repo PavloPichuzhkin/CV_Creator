@@ -1,8 +1,21 @@
 .container {
-  font: var(--font-m);
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  padding: 1rem 0;
+  margin: 2rem 1rem;
+  border: 2px solid var(--input-bg-color);
 }
-.container2 {
-  font: 18px/26px var(--font-family-main);
 
+img {
+  width: 100%;
+  height: auto;
+}
+
+//a { ///pereterlo Navbar!!
+//  color: var(--button-color);
+//}
+.extLinc {
+  color: var(--button-color);
 }

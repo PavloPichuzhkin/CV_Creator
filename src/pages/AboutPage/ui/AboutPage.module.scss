@@ -1,0 +1,33 @@
+.container {
+  font: var(--font-m);
+
+}
+.container2 {
+  font: 18px/28px var(--font-family-main);
+
+}
+.divContainer {
+  //border: 1px solid var(--input-bg-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  //overflow: auto;
+  overflow-x: scroll;
+  //overflow-x: hidden;
+
+
+
+}
+
+.divText {
+  border: 1px solid var(--input-bg-color);
+  //flex: 1;
+  overflow: hidden;
+min-width: 400px;
+  height: 100px;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+
+
+}

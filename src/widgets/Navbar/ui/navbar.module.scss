@@ -1,0 +1,36 @@
+.navbar{
+  display: flex;
+  width: 100vw;
+  font: var(--font-l);
+  height: var(--navbar-height);
+  margin-right: 12px;
+  position: relative;
+}
+
+.navbarContainer {
+  display: flex;
+  flex: auto;
+  justify-content: space-between;
+}
+.navbarItem{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid rgb(0, 0, 0, 0);
+
+}
+.navbarItem:hover {
+  border: 2px solid #decb50;
+  border-radius: 5px;
+  opacity: 80%;
+
+}
+.active{
+  color: var(--button-color);
+  display: flex;
+}
+.svgPosition{
+  display: inline-block;
+  position: absolute;
+  top: 2rem; right: 6rem;
+}

@@ -6,19 +6,24 @@ import {
     getRouteSignIn,
     getRouteTemplates
 } from "../router/router";
-import React from "react";
+import React, {ReactNode} from "react";
+import ResumeMaker from '../../assets/icons/ResumeMaker.svg';
 
 export interface NavbarItemType {
     path: string;
-    text: string;
-    Icon?: React.FC<React.SVGProps<SVGSVGElement>>; //React.VFC Deprecated Equivalent with React.FC.
+    text: string | ReactNode;
+
+    Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
     authOnly?: boolean;
-    target?:"_blank";
+    target?: "_blank";
 }
-export const navbarItem:NavbarItemType[] = [
+
+export const navbarItem: NavbarItemType[] = [
     {
         path: getRouteMain(),
         text: AppRoutes.MAIN,
+        // text: null,
+        Icon: ResumeMaker,
     },
     {
         path: getRouteAbout(),
@@ -35,10 +40,11 @@ export const navbarItem:NavbarItemType[] = [
     {
         path: getRouteDesign(),
         text: 'Design',
-        target:'_blank',
+        // target:'_blank',
     },
     {
         path: getRouteSignIn(),
-        text: 'Sign in',
+        text: <>Login</>,
+
     },
 ];

@@ -1,17 +1,19 @@
 import {RouteProps} from "react-router-dom";
-import {MainPage} from "../../../../pages/MainPage";
-import AboutPage from "../../../../pages/AboutPage/AboutPage";
-import AuthPage from "../../../../pages/AuthPage/AuthPage";
-import ComponentsSwitcherPage from "../../../../pages/ComponentsSwitcherPage/ComponentsSwitcherPage";
+import {MainPage} from "pages/MainPage";
+import AboutPage from "pages/AboutPage/ui/AboutPage";
+import AuthPage from "pages/AuthPage/AuthPage";
+import ComponentsSwitcherPage from "pages/ComponentsSwitcherPage/ui/ComponentsSwitcherPage";
+import {ComponentsSwitcherPageAsync} from "pages/ComponentsSwitcherPage";
+
 import {
     AppRoutes,
     getRouteAbout, getRouteComponentsSwitcher, getRouteDesign,
     getRouteMain,
     getRouteSignIn,
     getRouteSignUp, getRouteTemplates
-} from "../../../../shared/consts/router/router";
-// import {TemplatesPage} from "pages/TemplatesPage";  //TODO !!! aliases
-import {TemplatesPage} from "../../../../pages/TemplatesPage";
+} from "shared/consts/router/router";
+import {DesignPage} from "pages/DesignPage";
+import {TemplatesPage} from "pages/TemplatesPage";
 
 
 
@@ -30,11 +32,14 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.COMPONENTS_SWITCHER]: {
         path: getRouteComponentsSwitcher(),
-        element: <ComponentsSwitcherPage/>,
+        element: <ComponentsSwitcherPageAsync/>,
+        // element: <ComponentsSwitcherPage/>,
+
     },
+
     [AppRoutes.DESIGN]: {
         path: getRouteDesign(),
-        element: <ComponentsSwitcherPage/>,/////???external link  ??? rel="noopener noreferrer"
+        element: <DesignPage/>,
     },
     [AppRoutes.SIGN_IN]: {
         path: getRouteSignIn(),

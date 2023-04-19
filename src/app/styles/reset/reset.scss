@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  //box-sizing: border-box;
-  //box-sizing: content-box;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
@@ -25,6 +24,8 @@ a {
   padding: 10px;
   border: 2px solid rgb(0, 0, 0, 0);
   border-radius: 5px;
+
+display: flex;
   //opacity: 80%;
 
 }
@@ -40,12 +41,11 @@ a:focus {
   //text-decoration: #ce0505;
 }
 
-nav, section, footer, aside, main{
+section, aside, main{
   padding: 1rem;
 }
 
 a:hover {
-  //border-bottom: 2px solid #decb50;
   padding: 10px;
   border: 2px solid #decb50;
   border-radius: 5px;

@@ -1,5 +1,6 @@
-import { MainPageAsync } from './ui/MainPage.async';
+import { ComponentsSwitcherPageAsync } from './ui/ComponentsSwitcherPage.async';
 
 export {
-    MainPageAsync as MainPage,
+    ComponentsSwitcherPageAsync
+        // as ComponentsSwitcherPage,
 };

@@ -5,6 +5,7 @@
   $primary-text-color:#404242;
   $secondary-text-color:#787878;
   $button-color:#58A9A5;
+  $input-bg-color:#e8e8e8;
 
 
   --bg-color: #F6F7FB;
@@ -15,12 +16,12 @@
   --primary-text-color: #{$primary-text-color};
 
   --label-text-color: #{$secondary-text-color};
-  --input-bg-color: #{$secondary-text-color};
+
+  --input-text-color: #{$primary-text-color};
+  --input-bg-color: #{$input-bg-color};
+
 
   --placeholder-text-color: #{$secondary-text-color};
-  --placeholder-bg-color: #e8e8e8;
-  //--placeholder-bg-color: #{$secondary-text-color}; //rgb(255 122 127 / 80%);
-  //--placeholder-bg-color: #{$secondary-text-color};
 
 
   --secondary-color: #0449e0;

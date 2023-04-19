@@ -5,7 +5,7 @@ export enum AppRoutes {
     DESIGN="Design",
     SIGN_IN = "signIn",
     SIGN_UP = "signUp",
-    COMPONENTS_SWITCHER = "componentsSwitcher"
+    COMPONENTS_SWITCHER = "componentsSwitcher",
 
 }
 
