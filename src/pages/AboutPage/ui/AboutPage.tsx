@@ -73,7 +73,7 @@ function AboutPage(props: any) {
     return (
         <main className={cls.container} ref={null}>
             <div>AboutPage</div>
-            <div className={cls.container2}>Lorem ipsum dolor sit amet, consectetur adipisicing
+            <div className={cls.container2}>Lorem1211 ipsum dolor sit amet, consectetur adipisicing
                 elit. Tenetur, voluptatem.
             </div>
             <div className={cls.container2}>Professional Summary</div>
