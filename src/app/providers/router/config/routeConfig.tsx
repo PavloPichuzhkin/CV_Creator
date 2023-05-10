@@ -25,6 +25,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.ABOUT]: {
         path: getRouteAbout(),
         element: <AboutPage/>,
+
     },
     [AppRoutes.TEMPLATES]: {
         path: getRouteTemplates(),

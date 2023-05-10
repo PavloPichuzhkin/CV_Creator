@@ -1,177 +1,83 @@
-import React, {RefObject, useEffect, useMemo, useRef, useState} from 'react';
+import React, {
+    Fragment, memo,
+    ReactNode, useCallback,
+    useEffect, useMemo,
+    useRef,
+    useState
+} from 'react';
 import cls from './AboutPage.module.scss';
-// import TestSvgImgPgn from '@/widgets/testSvgImgPgn/TestSvgImgPgn';
 
-import {TestSvgImgPgn} from "widgets/testSvgImgPgn/TestSvgImgPgn";
+import {IInputValue, InputSomthing} from "pages/AboutPage/ui/InputSomthing";
+import MainPage from "pages/MainPage/ui/MainPage";
+import {splitComponentsIntoPages} from './splitComponentsIntoPages';
+
+// import {MainPage} from "pages/MainPage"; //// +1 more render => loading from LAZY
 
 function AboutPage(props: any) {
 
-    // const divRef: React.MutableRefObject<HTMLDivElement[]> = useRef([]);
-    const divRef: React.MutableRefObject<HTMLDivElement> = useRef();
+    const componentsRefs: React.MutableRefObject<HTMLDivElement[]> = useRef([]);
+    const [componentsRefsCurrent, setComponentsRefsCurrent] = useState([]);
+    const [textArray, setTextArray] = useState([]);
 
-    const [divText, setDivText] = useState(['something 1 Lorem ipsum dolor sit amet, consectetur adipisicing \n' +
-    '                elit. Tenetur, voluptatem.', 'something 2 Lorem ipsum dolor sit amet, consectetur adipisicing \n' +
-    '                elit. Tenetur, voluptatem.']);
-    const [divHeight, setDivHeight] = useState(divRef?.current?.clientHeight);
-    const [inputValue, setInputValue] = useState<inputValue>({firstName:''});
-    interface inputValue {
-        firstName: string;
-        type?: string;
-    }
+    const componentsForPagesMock = [
+        <MainPage/>,
+        ...textArray.map((text, i) => <p key={`${text}+${i}`}>{text}</p>),
+        <div>gfhlk</div>,
+        // <MainPage/>,
+    ]
 
-
+    const pageHeightMock = 100   // to constants
 
     useEffect(() => {
-        // setDivHeight(prev => {
-        //     return divRef?.current?.clientHeight
-        // });
-
-    }, [ ])
-    useEffect(() => {
-        // setDivHeight(prev => {
-        //     return divRef?.current?.clientHeight
-        // });
-        if (divRef?.current?.clientHeight>96){
-            setDivText((prevState) => {
-                // return [...prevState,'']/////////////////////////
-                console.log(prevState.push(inputValue.firstName))
-                return prevState
-
-            })
-        }
-    }, [ divRef?.current?.clientHeight])
-    useEffect(()=>{
-        setDivText((priv)=>{
-            console.log(inputValue)
-
-            // return [...priv.slice(0, priv.length-1), priv[priv.length-1]+=inputValue.firstName?inputValue.firstName[inputValue?.firstName.length-1]:'']
-            return [...priv.slice(0, priv.length-1), inputValue.firstName]
-
+        // console.log('useEffect', componentsRefs?.current[1]?.clientHeight)
+        componentsRefs.current = componentsRefs.current.slice(0, componentsForPagesMock.length);
+        setComponentsRefsCurrent(priv => {
+            // console.log('useEffect222', componentsRefs?.current[1]?.clientHeight)
+            return componentsRefs.current
         })
-    },[inputValue])
 
-    console.log(divRef)
+    }, [componentsRefs, textArray]);
 
-    const inputHandler=(evt:any)=>{
-        setInputValue(inputValue => {
-           return  { ...
-                inputValue, [evt.target.name]
-            :
-                evt.target.value
-            }
-        });
+    console.log('Render', componentsRefsCurrent.reduce((acc, componentRef) => acc + componentRef?.clientHeight, 0))
+    // console.log(componentsRefsCurrent)
 
-        // setDivText((priv)=>{
-        //     console.log(priv)
-        //     return [priv[0],priv[priv.length-1]=priv[priv.length-1]+evt.target.value[evt.target.value.length-1]]
-        // })
-    }
-
-
-
+    const sendToComponent = useCallback(function (inputValue: IInputValue) {
+        setTextArray(priv => {
+            return [...priv, inputValue.firstName]
+        })
+        console.log('sendToComponent', inputValue)
+    }, [])
 
     return (
-        <main className={cls.container} ref={null}>
-            <div>AboutPage</div>
-            <div className={cls.container2}>Lorem1211 ipsum dolor sit amet, consectetur adipisicing
-                elit. Tenetur, voluptatem.
-            </div>
+        <main className={cls.container}>
+
             <div className={cls.container2}>Professional Summary</div>
-            {/*<TestSvgImgPgn/>*/}
-            <input id="firstName" name="firstName"
-                   value={inputValue.firstName}
-                   onChange={inputHandler} />
+            <InputSomthing sendToComponent={sendToComponent}/>
             <div className={cls.divContainer}>
-                {divText.map((textItem, i) => {
-                    // debugger
-                    // console.log(divRef)
-                    return <div key={i + textItem} className={cls.divText}>
-                        <div ref={divRef}>{textItem}</div>
-                    </div>
-                })}
+                <div className={cls.divComponentsPreRender}>
+                    {
+                        (componentsForPagesMock.map((item, i) => {
+                            return <div
+                                key={i}
+                                ref={el => componentsRefs.current[i] = el}
+                            > {item}
+                            </div>
+                        }))
+                    }</div>
+
+                {(splitComponentsIntoPages(componentsForPagesMock, pageHeightMock, componentsRefsCurrent).map((page, i) => {
+                    return <div className={cls.divComponents} key={i}>
+                        {page.map((component, index) => {
+                            return <div className={''}
+                                        key={index}
+                            > {component}
+                            </div>
+                        })}</div>
+                }))
+                }
             </div>
         </main>
     );
 }
 
 export default AboutPage;
-
-// function AboutPage(props: any) {
-//     const elRef: React.MutableRefObject<HTMLElement> = useRef();
-//
-//     // const divRef: React.MutableRefObject<HTMLDivElement[]> = useRef([]);
-//     const divRef: React.MutableRefObject<HTMLDivElement> = useRef();
-//
-//     const [height, setHeight] = useState(0);
-//     const [divHeight, setDivHeight] = useState(0);
-//     const [inputValue, setInputValue] = useState<inputValue>({firstName:''});
-//     interface inputValue {
-//         firstName: string;
-//         type?: string;
-//     }
-//
-//
-//     const [divText, setDivText] = useState(['something 1 Lorem ipsum dolor sit amet, consectetur adipisicing \n' +
-//     '                elit. Tenetur, voluptatem.', 'something 2 Lorem ipsum dolor sit amet, consectetur adipisicing \n' +
-//     '                elit. Tenetur, voluptatem.']);
-//
-//     useEffect(() => {
-//         setHeight(prev => {
-//             return elRef?.current?.clientHeight
-//         });
-//         setDivHeight(prev => {
-//             return divRef?.current?.clientHeight
-//         });
-//         if (divHeight>96){
-//             setDivText((prevState) => {
-//                 // return [...prevState,'']/////////////////////////
-//                 console.log(prevState.push(''))
-//                 return prevState
-//
-//             })
-//         }
-//     }, [ divText])
-//     console.log(divHeight)
-//     // console.log('RENDER ABOUT')
-//     // console.log(divRef)
-//
-//     const inputHandler=(evt:any)=>{
-//         // setInputValue({ [evt.target.name]: evt.target.value });
-//         setInputValue({ ...inputValue,[evt.target.name]: evt.target.value });
-//
-//         setDivText((priv)=>{
-//             // console.log(priv[priv.length-1])
-//             console.log(priv)
-//             return [priv[0],priv[priv.length-1]=priv[priv.length-1]+evt.target.value[evt.target.value.length-1]]
-//
-//         })
-//     }
-//     console.log(inputValue)
-//
-//
-//
-//     return (
-//         <main className={cls.container} ref={elRef}>
-//             <div>AboutPage</div>
-//             <div className={cls.container2}>Lorem ipsum dolor sit amet, consectetur adipisicing
-//                 elit. Tenetur, voluptatem.
-//             </div>
-//             <div className={cls.container2}>Professional Summary</div>
-//             <TestSvgImgPgn/>
-//             <input id="firstName" name="firstName"
-//                    value={inputValue.firstName}
-//                    onChange={inputHandler} />
-//             <div className={cls.divContainer}>
-//                 {divText.map((textItem, i) => {
-//                     // debugger
-//                     // console.log(divRef)
-//                     return <div key={i + textItem} className={cls.divText}>
-//                         <div ref={divRef}>{textItem}</div>
-//                     </div>
-//                 })}
-//             </div>
-//         </main>
-//     );
-// }
-//
-// export default AboutPage;

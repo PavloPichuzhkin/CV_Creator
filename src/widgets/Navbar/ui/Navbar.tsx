@@ -22,9 +22,7 @@ const Navbar = () => {
                 })
                 setIndex(ind)
             }
-        console.log(active)
-        // console.log(index)
-        // console.log("Render")
+        // console.log(active)
 
         return (
             <nav className={classNames(cls.navbar)}>

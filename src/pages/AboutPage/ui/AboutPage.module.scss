@@ -19,15 +19,34 @@
 
 }
 
-.divText {
+.divComponents {
   border: 1px solid var(--input-bg-color);
   //flex: 1;
   overflow: hidden;
-min-width: 400px;
+min-width: 300px;
+  max-width: 350px;
   height: 100px;
   margin-right: 1rem;
   display: flex;
-  flex-direction: row;
+  //flex-direction: row;
+  flex-direction: column;
+  position: relative
 
+}
+.divOneComponent {
+  display: flex;
+
+}
+.divComponentsPreRender {
+  border: 1px solid var(--input-bg-color);
+  overflow: auto;
+  min-width: 300px;
+  max-width: 350px;
+  height: 100px;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  position: absolute
 
 }
